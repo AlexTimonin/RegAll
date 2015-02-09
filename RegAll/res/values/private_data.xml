@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--     <string name="server_url">http://188.163.194.90:599</string> -->
+	<string name="server_url">http://office.interpay.com.ua:599</string>
+    <string name="maps_key_debug">AIzaSyDl30qlpuFKbY1hsltFya7s80H8bc-vZRo</string>
+    <string name="maps_key_production">AIzaSyC0smeQp9CwIgELQ5IfmA17T8HVaMsZxwM</string>
+</resources>

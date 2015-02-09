@@ -169,9 +169,7 @@ public class RegistrationActivity extends Activity {
         }
 
         @Override
-        public void afterTextChanged(Editable s) {
-
-        }
+        public void afterTextChanged(Editable s) {}
     };
 
     private View.OnClickListener phoneClickListener = new View.OnClickListener() {
