@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/bg_white">
+
+        <ImageView
+                android:id="@+id/registerScreenIndicator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="center"
+                android:layout_margin="20dp"
+                android:layout_alignParentBottom="true"/>
+
+        <View
+                android:id="@+id/registerScreenDivider"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/divider_gray"
+                android:layout_above="@id/registerScreenIndicator"/>
+
+        <ImageView
+                android:id="@+id/registerScreenButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_centerHorizontal="true"
+                android:layout_above="@id/registerScreenDivider"/>
+
+        <RelativeLayout
+                android:id="@+id/registerScreenContainer"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_above="@id/registerScreenButton"
+                android:layout_alignParentTop="true"
+                android:background="#ffdcdcdc">
+
+                <LinearLayout
+                        android:id="@+id/registerScreenInputContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal">
+
+                        <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="0px"
+                                android:layout_weight="1"
+                                android:src="@drawable/new_reg_screen_logo"
+                                android:scaleType="center"
+                                android:background="@color/bg_white"/>
+
+                        <View
+                                android:layout_width="match_parent"
+                                android:layout_height="3dp"
+                                android:background="@drawable/gradient_top"/>
+
+                        <TextView
+                                android:id="@+id/registerScreenLabel1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:lines="2"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:textColor="#168dbe"
+                                android:textSize="16sp"
+                                android:gravity="center"/>
+
+                        <TextView
+                                android:id="@+id/registerScreenLabel2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:lines="1"
+                                android:layout_margin="10dp"
+                                android:textColor="#626262"
+                                android:textSize="18sp"
+                                android:gravity="center"/>
+
+                        <EditText
+                                android:id="@+id/registerScreenInput"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_marginLeft="17dp"
+                                android:layout_marginRight="17dp"
+                                android:layout_marginBottom="35dp"
+                                android:layout_marginTop="5dp"
+                                android:gravity="center_vertical|left"
+                                android:inputType="phone"
+                                android:textColor="#000"
+                                android:paddingLeft="15dp"
+                                android:textSize="21sp"
+                                android:background="@drawable/new_reg_screen_input"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                        android:id="@+id/registerScreenStatusContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal">
+
+                        <View
+                                android:layout_width="match_parent"
+                                android:layout_height="0px"
+                                android:layout_weight="1" />
+
+                        <ImageView
+                                android:id="@+id/registerScreenStatusImage"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="30dp"
+                                android:layout_marginBottom="30dp"/>
+
+                        <TextView
+                                android:id="@+id/registerScreenStatusLabel1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginRight="30dp"
+                                android:textColor="#626262"
+                                android:textSize="18sp"
+                                android:gravity="center"/>
+
+                        <TextView
+                                android:id="@+id/registerScreenStatusLabel2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="#168dbe"
+                                android:textSize="16sp"
+                                android:gravity="center"
+                                android:layout_margin="30dp"/>
+
+                </LinearLayout>
+
+        </RelativeLayout>
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_above="@id/registerScreenButton"
+                android:background="@drawable/gradient_bottom"/>
+
+        <ImageView
+                android:id="@+id/registerScreenCloseButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/new_reg_screen_close_icon"/>
+
+</RelativeLayout>

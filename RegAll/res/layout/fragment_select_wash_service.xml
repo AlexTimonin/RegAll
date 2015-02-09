@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TableLayout
+        android:id="@+id/tableTopForm"
+        style="@style/FormContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="10dip"
+        android:layout_marginTop="10dip"
+        android:background="@drawable/shape_white_stroke_dark"
+        android:padding="5dip" >
+
+        <TableRow
+            style="@style/FormTableRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                style="@style/FormLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_autowash" />
+
+            <TextView
+                android:id="@+id/textAutowashTitle"
+                style="@style/FormValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dip"
+                android:layout_weight="1" />
+        </TableRow>
+
+        <TableRow
+            style="@style/FormTableRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                style="@style/FormLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_address" />
+
+            <TextView
+                android:id="@+id/textAutowashAddress"
+                style="@style/FormValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dip"
+                android:layout_weight="1" />
+        </TableRow>
+
+        <TableRow
+            style="@style/FormTableRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                style="@style/FormLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="@string/label_car" />
+
+            <Spinner
+                android:id="@+id/spinnerCar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dip"
+                android:layout_weight="1"
+                android:background="@drawable/dropdown_gray_np" />
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:id="@+id/buttonNext"
+        style="@style/BlueButton"
+        android:layout_width="250dip"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:text="@string/button_next" />
+
+    <GridView
+        android:id="@+id/gridServices"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/buttonNext"
+        android:layout_below="@id/tableTopForm"
+        android:layout_marginBottom="5dip"
+        android:layout_marginTop="5dip"
+        android:horizontalSpacing="@dimen/gridPadding"
+        android:numColumns="3"
+        android:verticalSpacing="@dimen/gridPadding" >
+    </GridView>
+
+</RelativeLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="font_regular">fonts/helvetica_regular.otf</string>
+    <string name="font_bold">fonts/helvetica_bold.otf</string>
+    <string name="font_thin">fonts/helvetica_thin.otf</string>
+</resources>

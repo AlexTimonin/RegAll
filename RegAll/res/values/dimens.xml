@@ -1,0 +1,44 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">10dp</dimen>
+    <dimen name="activity_vertical_margin">10dp</dimen>
+    
+    <!-- common -->
+    <dimen name="actionBarTextSize">28sp</dimen>
+    <dimen name="actionBarPadding">5dip</dimen>
+    <dimen name="defaultCornersRadius">7dip</dimen>
+    <dimen name="lowerCornersRadius">4dip</dimen>
+    <dimen name="defaultStrokeWidth">3dip</dimen>
+    <dimen name="strokeCompensationPadding">-3dip</dimen>
+    <dimen name="defaultButtonTextSize">18sp</dimen>
+    <dimen name="defaultButtonMargin">2dip</dimen>
+    <dimen name="spinnerItemPadding">10dip</dimen>
+    <dimen name="gridPadding">5dip</dimen>
+    
+    <!-- filter autowash screen -->
+	<dimen name="filter_checkbox_padding">15dip</dimen>
+	<dimen name="filter_checkbox_text_size">10sp</dimen>
+	
+	<!-- autowash list -->
+	<dimen name="autowashTitleTextSize">18sp</dimen>
+	<dimen name="autowashDetailsTextSize">12sp</dimen>
+	<dimen name="autowashMarginUpBottom">2dip</dimen>
+
+	<!-- registration fragment -->
+	<dimen name="labelTextUpBottomMargin">7dip</dimen>
+	<dimen name="editTextUpBottomMargin">7dip</dimen>
+	<dimen name="editTextPadding">3dip</dimen>
+	<dimen name="editTextBackgroundCorners">7dip</dimen>
+	<dimen name="editTextBackgroundStroke">1.5dip</dimen>
+	
+	<dimen name="labelMarginUpBottom">7dip</dimen>
+	<dimen name="labelTextSize">16sp</dimen>
+	
+	<!-- main screen -->
+	<dimen name="mainSloganBigTextSize">20sp</dimen>
+	<dimen name="mainSloganSmallTextSize">16sp</dimen>
+	
+	<dimen name="selector_size">20dip</dimen>
+	
+</resources>

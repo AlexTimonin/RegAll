@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="message_no_autowashes_found">По вашему запросу не найдено данных!</string>
+    
+    <string name="message_requesting_for_services">Запрос списка сервисов&#8230;</string>
+    <string name="message_cannon_load_services">Не могу загрузить список сервисов!</string>
+    <string name="message_search_for_addresses">Поиск&#8230;</string>
+    <string name="message_geocode_request_failed">Не удалось обработать запрос!</string>
+    <string name="message_geocode_empty_result">По вашему запросу ничего не найдено!</string>
+    <string name="message_geocode_query_too_short">Ваш запрос слишком короткий, пожалуйста, укажите не менее 5 символов!</string>
+    <string name="message_get_free_time">Запрос свободного времени&#8230;</string>
+    <string name="message_error_deliver_result_location">Неизвестная ошибка доставки сообщения!</string>
+    <string name="message_error_apply_filter">Неизвестная ошибка!</string>
+    <string name="message_error_addrees_not_specified">Пожалуйста, укажите адрес!</string>
+    <string name="message_requesting_for_autowashes">Поиск автомоек&#8230;</string>
+    <string name="message_no_more_results">Больше нет результатов!</string>
+    <string name="message_no_phone_to_register">Пожалуйста, укажите телефонный номер!</string>
+    <string name="message_no_password_to_register">Пожалуйста, укажите персональный пароль!</string>
+    <string name="message_passwords_do_not_match">Введенные пароли не совпадают!</string>
+    <string name="message_incorrect_phone">Неправильный формат телефонного номера!</string>
+    <string name="message_logging_in">Вход&#8230;</string>
+    <string name="message_incorrect_email">Введенный вами email имеет неверный формат!</string>
+    <string name="message_registration_in_progress">Регистрация&#8230;</string>
+    <string name="message_completing_registration">Завершение регистрации&#8230;</string>
+    <string name="message_unknown_registration_error">Неизвестная ошибка регистрации!</string>
+    <string name="message_set_confirm_code">Подалуйста, введите код подтверждения!</string>
+    <string name="message_no_user_data">Недоступны данные о пользователе!</string>
+    <string name="message_receiving_user_objects">Получение пользовательских объектов&#8230;</string>
+    <string name="message_no_available_time">К сожалению, нет свободного времени!</string>
+    <string name="message_dialog_confirm_booking">Пожалуйста, подтвердите запрос</string>
+    <string name="message_confirming_in_progress">Заказ&#8230;</string>
+    <string name="message_requesting_booking_history">Получение истории заказов&#8230;</string>
+    <string name="message_confirming_order">Подтверждение заказа&#8230;</string>
+    
+    <string name="message_illegal_sms_code">Пожалуйста, введите корректный код!</string>
+    <string name="message_cannot_update_location">Не получается обновить ваше местоположение!</string>
+    <string name="message_confirm_decline_use_my_data">К сожалению, программа не сможет корректно функционировать без предоставления вами персональных данных. Вы действительно хотите отказаться от ее использования?</string>
+    <string name="message_get_car_marks">Загрузка списка марок&#8230;</string>
+    <string name="message_get_car_models">Загрузка списка/ моделей&#8230;</string>
+    <string name="message_no_model_selected">Не выбрана модель автомобиля!</string>
+    <string name="message_saving_user_object">Сохранение&#8230;</string>
+    <string name="message_confirm_delete_object">Вы действительно хотите удалить запись об автомобиле %1$s?</string>
+    
+    <string name="message_password_is_weak">Пароль должен содержать не менее 6 символов!</string>
+    <string name="message_date_format_incorrect">Дата имеет неправильный формат!</string>
+    <string name="message_no_service_selected">Вы не выбрали ни одной услуги!</string>
+    <string name="message_requesting_for_cities">Обновление справочника городов&#8230;</string>
+    <string name="message_removing_car">Удаление записи об автомобиле&#8230;</string>
+    <string name="message_set_a_time">Пожалуйста, укажите желаемое время!</string>
+    <string name="message_telephony_is_not_supported">Возможности телефонии недоступны!</string>
+    <string name="message_canceling_order">Отмена заказа&#8230;</string>
+    <string name="message_confirm_canceling_order">Вы уверены, что хотите отменить заказ?</string>
+    <string name="message_order_cancelled">Ваш заказ был успешно отменен!</string>
+    
+    <string name="message_illegal_sms_code_format">Неверный формат кода потверждения!</string>
+    <string name="message_registration_confirmed">Регистрация подтверждена!</string>
+    <string name="message_no_location_services_enabled">Для работы приложению необходимо иметь доступ к вашей геолокации. Включить?</string>
+    <string name="message_update_location_in_progress">Идет определение вашего местоположения&#8230;</string>
+
+    <string name="message_loading">Загрузка...</string>
+    
+</resources>

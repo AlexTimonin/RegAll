@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/background"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/layoutDate"
+        android:layout_width="250dip"
+        android:layout_height="100dip"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dip"
+        android:layout_marginTop="10dip"
+        android:background="@drawable/shape_white_stroke_dark" >
+
+        <LinearLayout
+            android:id="@+id/layoutDateDisplay"
+            android:layout_width="150dip"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:background="@color/actionBarBackground"
+            android:gravity="center_vertical"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textDay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="15"
+                android:textColor="@android:color/white"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textMonth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="Мая"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/buttonGoToYesterday"
+            android:layout_width="50dip"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dip"
+            android:layout_toLeftOf="@id/layoutDateDisplay"
+            android:background="@null"
+            android:contentDescription="@string/description_icon"
+            android:src="@drawable/arrow_left" />
+
+        <ImageButton
+            android:id="@+id/buttonGoToTomorrow"
+            android:layout_width="50dip"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dip"
+            android:layout_toRightOf="@id/layoutDateDisplay"
+            android:background="@null"
+            android:contentDescription="@string/description_icon"
+            android:src="@drawable/arrow_right" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/buttonNext"
+        style="@style/BlueButton"
+        android:layout_width="250dip"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:layout_marginBottom="10dip"
+        android:layout_alignParentBottom="true"
+        android:text="@string/button_next" />
+
+    <GridView
+        android:id="@+id/gridTime"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/buttonNext"
+        android:layout_below="@id/layoutDate"
+        android:horizontalSpacing="@dimen/gridPadding"
+        android:numColumns="3"
+        android:verticalSpacing="@dimen/gridPadding" >
+    </GridView>
+
+</RelativeLayout>

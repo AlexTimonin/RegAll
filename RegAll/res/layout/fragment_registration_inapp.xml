@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerVertical="true"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <com.regall.old.utils.sapereaude.maskedEditText.MaskedEditText
+        android:id="@+id/editPhone"
+        style="@style/EditRegistration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:textScaleX="1.2"
+        app:mask="+38(0##)###-##-##" />
+
+    <ViewStub
+        android:id="@+id/stubCarModelSpinners"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout="@layout/stub_car_model_spinners" />
+
+    <Button
+        android:id="@+id/buttonRegister"
+        style="@style/BlueButton"
+        android:layout_width="100dip"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@android:string/ok" />
+
+</LinearLayout>

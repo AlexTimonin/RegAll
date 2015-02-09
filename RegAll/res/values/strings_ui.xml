@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- registration -->
+    <string name="label_phone">Телефон</string>
+    <string name="hint_phone">Phone</string>
+    <string name="label_email">Email</string>
+    <string name="hint_email">Email</string>
+    <string name="button_registration">Регистрация</string>
+    <string name="button_last_used">Недавние</string>
+    <string name="button_filter">Фильтр</string>
+    <string name="label_no_data_to_display">Нет данных для отображения</string>
+    <string name="button_sign_up">Записаться</string>
+    <string name="dialog_confirm_title">Подтверждение регистрации</string>
+    <string name="dialog_confirm_text">Пожалуйста, введите код, полученный в SMS-сообщении</string>
+    
+    <!-- main -->
+    <string name="button_search">Поиск</string>
+    <string name="button_cabinet">Мой кабинет</string>
+    <string name="label_signup_for_autowash">Запись на автомойку</string>
+    <string name="label_convenient">Удобно</string>
+    <string name="label_fast">Быстро</string>
+    <string name="label_without_ordering">Без очередей</string>
+    
+    <!-- cabinet -->
+    <string name="button_save">Сохранить</string>
+    <string name="label_type_of_auto">Тип автомобиля</string>
+    <string name="button_my_orders">Мои заказы</string>
+    <string name="checkbox_personnal_data">Я согласен на использование моих персональных данных</string>
+    <string name="dialog_title_confirm_data_rejection">Подтвердите действие</string>
+    <string name="radio_nearest_by_address">Ближайшие к адресу</string>
+    <string name="radio_nearest_by_location">Ближайшие к вам</string>
+    
+    <string name="button_next">Далее</string>
+
+    <!-- select wash service -->
+    <string name="label_autowash">Автомойка</string>
+    <string name="label_address">Адрес</string>
+    <string name="label_car">Автомобиль</string>
+    <string name="button_apply_filter">Применить</string>
+    <string name="label_selected_services">Выбранные услуги</string>
+    <string name="label_time">Время</string>
+    
+    <!-- confirm dialog -->
+    <string name="button_back_to_edit">Изменить</string>
+    <string name="button_confirm">Подтвердить</string>
+    <string name="label_state">Состояние</string>
+
+    <!-- confirm registration on autowash -->
+    <string name="dialog_confirmation_title">Подтверждение заказа</string>
+    <string name="dialog_confirmation_message">Пожалуйста, подтвердите ваш заказ</string>
+    <string name="button_confirmation_cancel">Назад</string>
+    <string name="button_confirmation_confirm">Подтвердить</string>
+    <string name="cabineth_my_cars">Мои автомобили</string>
+    <string name="cd_button_add_new_car">button add new car</string>
+    <string name="label_mark">Марка</string>
+    <string name="label_model">Модель</string>
+    
+    <string name="dialog_title_confirm_action">Подтвердите действие</string>
+    
+    <string name="label_place_filtration">Местоположение</string>
+    
+    <string name="label_button_confirm">Подтвердить</string>
+    
+    <string name="reminder_title">Мойка автомобиля</string>
+
+</resources>

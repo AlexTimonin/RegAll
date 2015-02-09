@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="themeBlack">#020305</color>
+    <color name="themeBrightBlue">#80d4ff</color>
+    <color name="themeGreen">#7ca82c</color>
+    <color name="themeWhite">#ebe3e0</color>
+    <color name="themeDarkBlue">#57708f</color>
+    <color name="textColorPrimary">@color/themeBlack</color>
+    <color name="service_checkbox_unchecked">@color/themeWhite</color>
+    <color name="service_checkbox_checked">@color/themeGreen</color>
+    <color name="editTextBackgroundColor">@android:color/white</color>
+    <color name="editTextStrokeColor">#999</color>
+
+    <!--  -->
+    <color name="actionBarBackground">@color/bg_white</color>
+
+    <!--  -->
+    <color name="selector_light_background">#e7e7e7</color>
+    <color name="selector_dark_stroke">#3e3e3e</color>
+    <color name="selector_light_green_background">#76ca7a</color>
+    <color name="selector_dark_green_stroke">#1d8033</color>
+    
+    <!--  -->
+    <color name="route_speed_slow_color">#00ff00</color>
+    <color name="route_speed_normal_color">#ffff00</color>
+    <color name="route_speed_normal2_color">#f9910a</color>
+    <color name="route_speed_fast_color">#ff0000</color>
+    
+    <!--  -->
+    <color name="aux_button_back">#afb6bb</color>
+    
+    <!--  -->
+    <color name="gradient_black_start">#ffffff</color>
+    <color name="gradient_black_center">#393939</color>
+    <color name="gradient_black_end">#d0d0d0</color>
+    
+    <color name="selector_green">#50b258</color>
+    
+    <color name="path_color">#75834d</color>
+
+    <color name="bg_white">#f9f9f9</color>
+    <color name="divider_gray">#ffd4d4d4</color>
+
+</resources>

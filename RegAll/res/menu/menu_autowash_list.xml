@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:title="@string/menu_more"
+        android:showAsAction="always"
+        android:id="@+id/more"
+        android:icon="@drawable/settings"
+        android:orderInCategory="100">
+        <menu>
+            <item
+                android:id="@+id/actionFilter"
+                android:orderInCategory="100"
+                android:showAsAction="never"
+                android:title="@string/menu_filter"/>
+            <item
+                android:id="@+id/actionRecent"
+                android:orderInCategory="101"
+                android:showAsAction="never"
+                android:title="@string/menu_recent"/>
+            <item
+                android:id="@+id/actionHistory"
+                android:orderInCategory="102"
+                android:showAsAction="never"
+                android:title="@string/menu_history"/>
+        </menu>
+    </item>
+
+</menu>

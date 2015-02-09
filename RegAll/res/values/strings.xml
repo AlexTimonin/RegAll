@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">RegAll</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="button_register">Регистрация</string>
+    <string name="description_icon">icon</string>
+    <string name="menu_filter">Фильтр</string>
+    <string name="menu_recent">Недавние</string>
+    <string name="menu_history">История</string>
+    <string name="hint_enter_password">Повторите пароль</string>
+    <string name="hint_repeat_password">Введите пароль</string>
+    <string name="button_login">Вход</string>
+    <string name="getRoute">Поиск маршрута&#8230;</string>
+    <string name="getRouteError">Ошибка получения маршрута!</string>
+    <string name="message_some_functions_unavailable">Некоторые функции приложения могут быть недоступны!</string>
+    <string name="label_days">дней</string>
+    <string name="label_hours">часов</string>
+    <string name="label_min">мин.</string>
+    <string name="label_sec">сек.</string>
+    <string name="label_date_start">Начало</string>
+    <string name="label_date_end">Конец</string>
+    <string name="label_select_interval">Выберите интересующий вас интервал времени</string>
+    <string name="add_car_label">Добавить автомобиль</string>
+    
+    
+    <string name="template_autowash"><![CDATA[<b>]]>Автомойка:<![CDATA[</b>]]> %1$s</string>
+    <string name="template_address"><![CDATA[<b>]]>Адрес:<![CDATA[</b>]]> %1$s</string>
+    <string name="template_services"><![CDATA[<b>]]>Выбранные услуги:<![CDATA[</b>]]> %1$s</string>
+    <string name="template_time"><![CDATA[<b>]]>Время:<![CDATA[</b>]]> %1$s</string>
+    <string name="template_duration"><![CDATA[<b>]]>Продолжительность:<![CDATA[</b>]]> %1$s</string>
+    <string name="template_cost"><![CDATA[<b>]]>Стоимость:<![CDATA[</b>]]> %1$s грн.</string>
+    <string name="template_status"><![CDATA[<b>]]>Статус:<![CDATA[</b>]]> %1$s</string>
+    <string name="template_automobile"><![CDATA[<b>]]>Автомобиль:<![CDATA[</b>]]> %1$s</string>
+    <string name="hint_enter_sms">Введите код SMS</string>
+
+    <string name="dialog_title_success">Готово!</string>
+    <string name="dialog_title_error">Ошибка</string>
+    <string name="dialog_confirm_success">Ваша запись успешно создана! Хотите добавить напоминание в календарь?</string>
+    <string name="notification_success">Ваша запись успешно создана!</string>
+    <string name="label_service_time_remaining">До выполнения заказа осталось</string>
+    <string name="label_start">Начало пути</string>
+    <string name="label_end">Пункт назначения</string>
+    <string name="button_reset_filter">Сбросить</string>
+    
+    <string name="dialog_title_wait_a_minute">Минуточку</string>
+    <string name="dialog_text_function_need_registration">Эта возможность требует регистрации, хотите зарегистрироваться сейчас?</string>
+    <string name="dialog_no_cars">В вашем профиле не указано ни одного автомобиля! Хотите перейти в кабинет и добавить его сейчас?</string>
+    <string name="menu_more">More</string>
+    <string name="template_distance">Удаленность - %.2f км.</string>
+    <string name="message_no_distance_info">Расстояние не определено.</string>
+    
+    <string name="dialog_add_event_to_calendar">Хотите добавить напоминание в календарь?</string>
+    <string name="message_no_calendar">Похоже, что на вашем устройстве не установлено подходящих приложений.</string>
+    
+</resources>

@@ -1,0 +1,154 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="AppBaseTheme" parent="Theme.Sherlock.Light.DarkActionBar">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <item name="android:actionBarStyle" tools:ignore="NewApi">@style/CustomActionBar</item>
+        <item name="actionBarStyle">@style/CustomActionBar</item>
+        <item name="android:actionOverflowButtonStyle" tools:ignore="NewApi">@style/CustomOverflowButton</item>
+        <item name="actionOverflowButtonStyle">@style/CustomOverflowButton</item>
+    </style>
+
+    <style name="CustomOverflowButton" parent="@style/Widget.Sherlock.ActionButton.Overflow">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:src">@drawable/settings</item>
+    </style>
+
+    <style name="CustomActionBar" parent="@style/Widget.Sherlock.ActionBar">
+        <item name="android:background">@color/actionBarBackground</item>
+        <item name="background">@color/actionBarBackground</item>
+        <item name="android:displayOptions" tools:ignore="NewApi">showCustom</item>
+        <item name="displayOptions">showCustom</item>
+    </style>
+
+    <style name="ActionBarTitle" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@color/themeWhite</item>
+        <item name="android:textSize">@dimen/actionBarTextSize</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="DefaultPageContainer">
+        <item name="android:background">@color/bg_white</item>
+    </style>
+
+    <style name="DefaultButton" parent="@android:style/Widget.Button">
+        <item name="android:background">@drawable/button_background</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/defaultButtonTextSize</item>
+        <item name="android:layout_margin">@dimen/defaultButtonMargin</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="BlueButton" parent="@style/DefaultButton">
+        <item name="android:background">@drawable/blue_button_background</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">@dimen/defaultButtonTextSize</item>
+        <item name="android:layout_margin">@dimen/defaultButtonMargin</item>
+    </style>
+    
+    <style name="GrayButton" parent="@style/DefaultButton">
+        <item name="android:background">@drawable/button_gray_selector</item>
+    </style>
+
+    <style name="SloganBig" parent="@android:style/Widget.TextView">
+        <item name="android:textSize">@dimen/mainSloganBigTextSize</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="SloganSmall" parent="@android:style/Widget.TextView">
+        <item name="android:textSize">@dimen/mainSloganSmallTextSize</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="CheckboxSelectService" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@null</item>
+        <item name="android:background">@drawable/selector_service_filter</item>
+        <item name="android:gravity">center_horizontal|center_vertical</item>
+        <item name="android:padding">@dimen/filter_checkbox_padding</item>
+        <item name="android:textSize">@dimen/filter_checkbox_text_size</item>
+    </style>
+
+    <!-- select wash service -->
+
+    <style name="FormContainer"></style>
+
+    <style name="FormTableRow">
+        <item name="android:padding">2dip</item>
+    </style>
+
+    <style name="AutowashItemTitle" parent="@android:style/Widget.TextView">
+        <item name="android:textSize">@dimen/autowashTitleTextSize</item>
+        <item name="android:layout_marginTop">@dimen/autowashMarginUpBottom</item>
+        <item name="android:layout_marginBottom">@dimen/autowashMarginUpBottom</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AutowashItemDetails" parent="@style/AutowashItemTitle">
+        <item name="android:textSize">@dimen/autowashDetailsTextSize</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="FormLabel" parent="@android:style/Widget.TextView">
+        <item name="android:textSize">@dimen/labelTextSize</item>
+        <item name="android:layout_marginTop">@dimen/labelMarginUpBottom</item>
+        <item name="android:layout_marginBottom">@dimen/labelMarginUpBottom</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="FormValue" parent="@style/FormLabel">
+        <item name="android:textSize">@dimen/labelTextSize</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:layout_marginLeft">5dip</item>
+    </style>
+
+    <style name="EditTextDefault" parent="@android:style/Widget.EditText">
+        <item name="android:layout_marginTop">@dimen/editTextUpBottomMargin</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:padding">2dip</item>
+        <item name="android:drawablePadding">5dip</item>
+        <item name="android:background">@drawable/shape_white_stroke_dark</item>
+    </style>
+
+    <!-- NEW -->
+    <style name="EditRegistration" parent="@android:style/Widget.EditText">
+        <item name="android:layout_marginTop">@dimen/editTextUpBottomMargin</item>
+        <item name="android:layout_marginBottom">@dimen/editTextUpBottomMargin</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:padding">10dip</item>
+        <item name="android:layout_margin">5dip</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/shape_white_stroke_dark</item>
+    </style>
+
+    <style name="TextCountdown" parent="@android:style/Widget.TextView">
+        <item name="android:layout_width">50dip</item>
+        <item name="android:layout_height">50dip</item>
+        <item name="android:layout_margin">5dip</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/gray_gradient</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">26sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:shadowDy">10</item>
+        <item name="android:shadowRadius">10</item>
+        <item name="android:shadowColor">@android:color/black</item>
+    </style>
+    
+    <style name="LabelCountdown" parent="@android:style/Widget.TextView">
+        <item name="android:layout_width">50dip</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">5dip</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    
+</resources>

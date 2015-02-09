@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/layoutLocationFilterPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:background="@drawable/shape_white_stroke_dark"
+        android:orientation="vertical"
+        android:padding="10dip" >
+
+        <RadioGroup
+            android:id="@+id/radioGroupLocationFilter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RadioButton
+                android:id="@+id/radioNearestByLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:button="@drawable/radio_selector"
+                android:text="@string/radio_nearest_by_location" />
+
+            <RadioButton
+                android:id="@+id/radioNearestByAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:button="@drawable/radio_selector"
+                android:text="@string/radio_nearest_by_address" />
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/editAddress"
+            style="@style/EditTextDefault"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:inputType="text"
+            android:padding="7dip" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/buttonsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:focusable="false"
+        android:focusableInTouchMode="false" >
+
+        <Button
+            android:id="@+id/buttonResetFilter"
+            style="@style/BlueButton"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button_reset_filter" />
+
+        <Button
+            android:id="@+id/buttonApplyFilter"
+            style="@style/BlueButton"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button_apply_filter" />
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/layoutAdditionalServices"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layoutLocationFilterPanel"
+        android:layout_marginTop="10dip"
+        android:background="@drawable/shape_white_stroke_dark"
+        android:orientation="vertical"
+        android:padding="10dip" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <CheckBox
+                android:id="@+id/checkboxWifi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dip"
+                android:background="@drawable/checkbox_wi_fi"
+                android:button="@null"
+                android:gravity="center" />
+
+            <CheckBox
+                android:id="@+id/checkboxFood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dip"
+                android:background="@drawable/checkbox_food"
+                android:button="@null"
+                android:gravity="center" />
+
+            <CheckBox
+                android:id="@+id/checkboxFuel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dip"
+                android:background="@drawable/checkbox_fuel"
+                android:button="@null"
+                android:gravity="center" />
+
+            <CheckBox
+                android:id="@+id/checkboxPayCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dip"
+                android:background="@drawable/checkbox_pay_card"
+                android:button="@null"
+                android:gravity="center" />
+
+            <CheckBox
+                android:id="@+id/checkboxRestRoom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dip"
+                android:background="@drawable/checkbox_rest_room"
+                android:button="@null"
+                android:gravity="center" />
+
+            <CheckBox
+                android:id="@+id/checkboxTexhSupport"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dip"
+                android:background="@drawable/checkbox_tech_support"
+                android:button="@null"
+                android:gravity="center" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <GridView
+        android:id="@+id/gridServices"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/buttonsLayout"
+        android:layout_below="@id/layoutAdditionalServices"
+        android:layout_marginBottom="10dip"
+        android:layout_marginTop="10dip"
+        android:horizontalSpacing="@dimen/gridPadding"
+        android:numColumns="3"
+        android:verticalSpacing="@dimen/gridPadding" >
+    </GridView>
+
+</RelativeLayout>

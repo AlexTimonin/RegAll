@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/layoutMainData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <Spinner
+                android:id="@+id/spinnerCity"
+                android:layout_width="match_parent"
+                android:layout_height="50dip"
+                android:layout_marginBottom="5dip"
+                android:layout_marginTop="5dip"
+                android:background="@drawable/dropdown_gray_np" />
+
+            <EditText
+                android:id="@+id/editPhone"
+                style="@style/EditTextDefault"
+                android:layout_width="match_parent"
+                android:layout_height="50dip"
+                android:layout_marginBottom="5dip"
+                android:layout_marginTop="5dip"
+                android:gravity="center"
+                android:hint="@string/hint_phone"
+                android:inputType="none"
+                android:padding="8dip" />
+
+            <EditText
+                android:id="@+id/editEmail"
+                style="@style/EditTextDefault"
+                android:layout_width="match_parent"
+                android:layout_height="50dip"
+                android:layout_marginBottom="5dip"
+                android:layout_marginTop="5dip"
+                android:gravity="center"
+                android:hint="@string/hint_email"
+                android:inputType="none"
+                android:padding="8dip" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dip"
+            android:layout_marginBottom="5dip"
+            android:layout_marginTop="5dip"
+            android:background="@color/selector_dark_stroke" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip"
+            android:orientation="horizontal" >
+
+            <ImageButton
+                android:id="@+id/buttonDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="50dip"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/car_list_right_np"
+                android:contentDescription="@string/description_icon"
+                android:src="@drawable/content_discard" />
+
+            <Spinner
+                android:id="@+id/spinnerUserCars"
+                android:layout_width="match_parent"
+                android:layout_height="50dip"
+                android:layout_alignBottom="@id/buttonDelete"
+                android:layout_alignTop="@id/buttonDelete"
+                android:layout_toLeftOf="@id/buttonDelete"
+                android:background="@drawable/car_list_left_np" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/buttonAddNewCar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="5dip"
+            android:layout_marginTop="5dip"
+            android:background="@drawable/add_car_selector"
+            android:paddingLeft="15dip"
+            android:paddingRight="15dip"
+            android:text="@string/add_car_label"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dip"
+            android:layout_marginBottom="5dip"
+            android:layout_marginTop="5dip"
+            android:background="@color/selector_dark_stroke" />
+
+        <CheckBox
+            android:id="@+id/checkboxAgreeToUsePersonnalData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:layout_marginTop="10dip"
+            android:button="@drawable/checkbox_selector"
+            android:checked="true"
+            android:drawablePadding="10dip"
+            android:gravity="center"
+            android:text="@string/checkbox_personnal_data" />
+
+        <Button
+            android:id="@+id/buttonSave"
+            style="@style/BlueButton"
+            android:layout_width="250dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/button_save" />
+    </LinearLayout>
+
+</ScrollView>

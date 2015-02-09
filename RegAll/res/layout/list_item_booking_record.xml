@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="10dip" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_white_stroke_dark"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dip" >
+
+            <TextView
+                android:id="@+id/textAutowashTitle"
+                style="@style/FormValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/textAutowashAddress"
+                style="@style/FormValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/textAutoTitle"
+                style="@style/FormValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/textServiceTime"
+                style="@style/FormValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/textSelectedServices"
+                style="@style/FormValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/textServiceState"
+                style="@style/FormValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/layoutTimeRemaining"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    style="@style/FormLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/label_service_time_remaining" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/textDays"
+                        style="@style/TextCountdown"
+                         />
+
+                    <TextView
+                        android:id="@+id/textHours"
+                        style="@style/TextCountdown"
+                         />
+
+                    <TextView
+                        android:id="@+id/textMinutes"
+                        style="@style/TextCountdown"
+                         />
+
+                    <TextView
+                        android:id="@+id/textSeconds"
+                        style="@style/TextCountdown"
+                         />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        style="@style/LabelCountdown"
+                        android:text="@string/label_days" />
+
+                    <TextView
+                        style="@style/LabelCountdown"
+                        android:text="@string/label_hours" />
+
+                    <TextView
+                        style="@style/LabelCountdown"
+                        android:text="@string/label_min" />
+
+                    <TextView
+                        style="@style/LabelCountdown"
+                        android:text="@string/label_sec" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/defaultStrokeWidth"
+            android:layout_marginLeft="@dimen/defaultStrokeWidth"
+            android:layout_marginRight="@dimen/defaultStrokeWidth"
+            android:orientation="horizontal" >
+
+            <ImageButton
+                android:id="@+id/buttonCall"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/aux_button_left"
+                android:contentDescription="@string/description_icon"
+                android:padding="5dip"
+                android:src="@drawable/call" />
+
+            <ImageButton
+                android:id="@+id/buttonShowRoute"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dip"
+                android:layout_marginRight="1dip"
+                android:layout_weight="1"
+                android:background="@drawable/middle_aux_button"
+                android:contentDescription="@string/description_icon"
+                android:padding="5dip"
+                android:src="@drawable/route" />
+
+            <ImageButton
+                android:id="@+id/buttonCancelBooking"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/aux_button_right"
+                android:contentDescription="@string/description_icon"
+                android:padding="5dip"
+                android:src="@drawable/cancel" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

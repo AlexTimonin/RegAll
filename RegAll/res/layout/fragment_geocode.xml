@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="10dip" >
+
+    <EditText
+        android:id="@+id/editAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dip"
+        android:layout_toLeftOf="@+id/buttonStartSearchForAddress"
+        android:background="@drawable/shape_rectangle_white_stroke_dark"
+        android:imeOptions="actionSearch"
+        android:inputType="textPostalAddress"
+        android:padding="15dip"
+        android:textSize="20sp" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/buttonStartSearchForAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/editAddress"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/editAddress"
+        android:layout_marginLeft="@dimen/strokeCompensationPadding"
+        android:background="@drawable/shape_rectangle_white_stroke_dark_right_circled"
+        android:text="@string/button_search" />
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/editAddress"
+        layout="@layout/fragment_list" />
+
+</RelativeLayout>
