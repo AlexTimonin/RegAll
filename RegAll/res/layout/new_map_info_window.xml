@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:background="@color/bg_white">
+
+    <ImageView
+            android:id="@+id/mapInfoWindowImageView"
+            android:layout_width="wrap_content"
+            android:maxWidth="60dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="8dp"/>
+
+    <TextView
+            android:id="@+id/mapInfoWindowTitleTextView"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/mapInfoWindowImageView"
+            android:layout_marginBottom="8dp"
+            android:paddingTop="8dp"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="#000"/>
+
+    <TextView
+            android:id="@+id/mapInfoWindowAddressTextView"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/mapInfoWindowImageView"
+            android:layout_below="@id/mapInfoWindowTitleTextView"
+            android:layout_marginBottom="8dp"
+            android:textSize="11sp"
+            android:textColor="#555"/>
+
+    <TextView
+            android:id="@+id/mapInfoWindowWorkTimeTextView"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/mapInfoWindowImageView"
+            android:layout_below="@id/mapInfoWindowAddressTextView"
+            android:paddingBottom="8dp"
+            android:textSize="11sp"
+            android:textColor="#555"/>
+
+    <ImageView
+            android:layout_width="36dp"
+            android:layout_height="0dp"
+            android:layout_alignTop="@id/mapInfoWindowTitleTextView"
+            android:layout_toRightOf="@id/mapInfoWindowTitleTextView"
+            android:layout_alignBottom="@id/mapInfoWindowWorkTimeTextView"
+            android:scaleType="center"
+            android:src="@drawable/new_arrow_right"
+            android:background="#ff94c7de"
+            android:padding="8dp"/>
+
+</RelativeLayout>

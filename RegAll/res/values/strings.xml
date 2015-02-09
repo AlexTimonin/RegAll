@@ -53,5 +53,7 @@
     
     <string name="dialog_add_event_to_calendar">Хотите добавить напоминание в календарь?</string>
     <string name="message_no_calendar">Похоже, что на вашем устройстве не установлено подходящих приложений.</string>
-    
+    <string name="error_loading_data">Ошибка загрузки данных</string>
+    <string name="from_to">С %1$s до %2$s</string>
+
 </resources>

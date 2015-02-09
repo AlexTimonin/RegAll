@@ -253,7 +253,7 @@ public class MainActivity extends SherlockFragmentActivity implements Connection
 		FragmentManager manager = getSupportFragmentManager();
 		FragmentTransaction transaction = manager.beginTransaction();
 
-		MapFragment map = MapFragment.create(latFrom, lonFrom);
+		MapFragment map = MapFragment.create(latFrom, lonFrom, mCurrentAutowashFilter);
 		
 		transaction.replace(R.id.container, map, "map");
 //		transaction.addToBackStack("map");

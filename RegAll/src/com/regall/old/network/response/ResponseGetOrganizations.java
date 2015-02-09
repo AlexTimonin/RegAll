@@ -1,13 +1,14 @@
 package com.regall.old.network.response;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-
+import android.text.TextUtils;
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Root;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ResponseGetOrganizations extends BasicResponse {
 
@@ -78,7 +79,23 @@ public class ResponseGetOrganizations extends BasicResponse {
 		public List<Point> getOrganisations() {
 			return mOraganisations;
 		}
-	}
+
+        @Override
+        public int hashCode() {
+            return getId() == null ? 0 : getId().hashCode();
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            return o != null && o instanceof Organisation && TextUtils.equals(getId(), ((Organisation) o).getId());
+        }
+
+        public boolean isPremium() {
+            //TODO waiting for API update. Always true until then
+            return true;
+        }
+
+    }
 
 	@Root(name = "org_point")
 	public static class Point implements Serializable {
@@ -157,7 +174,7 @@ public class ResponseGetOrganizations extends BasicResponse {
 		@Attribute(name="service_cost", required = false)
 		private int mServiceCost;
 
-		@Attribute(name="first_time", required = false)
+		@Attribute(name="f_time", required = false)
 		private String mFirstTime;
 
 		@Attribute(name="work_start")
@@ -174,7 +191,7 @@ public class ResponseGetOrganizations extends BasicResponse {
 		
 		@Attribute(name="pix_link", required = false)
 		private String mPictureUrl;
-		
+
 		@Attribute(name = "latitude")
 		private double mLatitude;
 		
@@ -250,7 +267,17 @@ public class ResponseGetOrganizations extends BasicResponse {
 		public double getLongitude() {
 			return mLongitude;
 		}
-	}
+
+        @Override
+        public int hashCode() {
+            return getId() == null ? 0 : getId().hashCode();
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            return o != null && o instanceof Point && TextUtils.equals(getId(), ((Point) o).getId());
+        }
+    }
 	
 	@Element(name="page", required = false)
 	private ResultPage mPage;
