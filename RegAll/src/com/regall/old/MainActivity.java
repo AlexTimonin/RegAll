@@ -5,9 +5,11 @@ import android.annotation.TargetApi;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Location;
+import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.CalendarContract;
@@ -22,6 +24,8 @@ import android.view.View;
 import android.widget.Toast;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 import com.crashlytics.android.Crashlytics;
 import com.google.android.gms.common.ConnectionResult;
@@ -32,6 +36,8 @@ import com.google.android.gms.location.LocationClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.regall.R;
+import com.regall.controllers.AutowashController;
+import com.regall.fragments.MapFragment;
 import com.regall.old.db.DAOUserObject;
 import com.regall.old.fragments.AddCarFragment;
 import com.regall.old.fragments.AutowashListFragment;
@@ -41,7 +47,6 @@ import com.regall.old.fragments.FilterFragment;
 import com.regall.old.fragments.GeocodeFragment;
 import com.regall.old.fragments.LoginFragment;
 import com.regall.old.fragments.MainFragment;
-import com.regall.fragments.MapFragment;
 import com.regall.old.fragments.OrdersHistoryFragment;
 import com.regall.old.fragments.RecentAutowashesFragment;
 import com.regall.old.fragments.RegistrationFragment;
@@ -62,6 +67,7 @@ import com.regall.old.network.response.ResponseGetUserObjects;
 import com.regall.old.network.response.ResponseGetUserObjects.ClientObject;
 import com.regall.old.utils.DialogHelper;
 import com.regall.old.utils.Logger;
+import com.regall.utils.PrefUtils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -85,10 +91,13 @@ public class MainActivity extends SherlockFragmentActivity implements Connection
 	private LocationClient mLocationClient;
 	private LocationRequest mLocationRequest;
 	private Location mLocation;
+	private Location defaultLocation;
 
 	private LocationListener mFragmentLocationListener;
 	private boolean mNeedInitializeView;
-	
+	private AutowashController autowashController;
+    private boolean isGPSEnabled = true;
+
 	private Callback<ResponseGetUserObjects> mGetObjectsCallback = new Callback<ResponseGetUserObjects>() {
 
 		@Override
@@ -134,48 +143,117 @@ public class MainActivity extends SherlockFragmentActivity implements Connection
 
 		mProgressDialog = new ProgressDialog(this);
 
-		setupLocationClient();
-	}
+        defaultLocation = PrefUtils.getDefaultLocation(this);
+        autowashController = new AutowashController(this);
+        showMapFragment(getCurrentLocation().getLatitude(), getCurrentLocation().getLongitude(), 0, 0);
+//        initializeState(getCurrentLocation());
+    }
+
+    private void initializeState(Location location){
+        mUser = User.fromPreferences(this);
+
+        if(mUser != null){
+            showProgressDialog(R.string.message_receiving_user_objects);
+            RequestGetUserObjects request = RequestGetUserObjects.create(mUser.getPhone());
+            mApi.getUserObjects(request, mGetObjectsCallback);
+        }
+    }
+
+    public Location getDefaultLocation() {
+        return defaultLocation;
+    }
+
+    public Location getCurrentLocation() {
+        return mLocation == null ? defaultLocation : mLocation;
+    }
+
+    public AutowashController getAutowashController() {
+        return autowashController;
+    }
 	
 	private void setupLocationClient(){
-		if(checkGoogleServiceAvailable()){
+		if(checkGoogleServiceAvailable() && isGPSEnabled){
 			mLocationClient = new LocationClient(this, this, this);
 			mLocationRequest = LocationRequest.create().setInterval(5000).setFastestInterval(1000).setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY).setNumUpdates(1);
 			mNeedInitializeView = true;
 			if(mLocationClient.isConnected() || mLocationClient.isConnecting()){
 				System.out.println("on init - is connected or connecting");
-				showProgressDialog(R.string.message_update_location_in_progress);
 				mLocationClient.requestLocationUpdates(mLocationRequest, this);
 			} else {
 				System.out.println("on init - not connected");
-				showProgressDialog(R.string.message_update_location_in_progress);
 				mLocationClient.connect();
 			}
 		}
 	}
-	
-	private void initializeState(Location location){
-		mUser = User.fromPreferences(this);
-		showMapFragment(location.getLatitude(), location.getLongitude(), 0, 0);
-		
-		if(mUser != null){
-			showProgressDialog(R.string.message_receiving_user_objects);
-			RequestGetUserObjects request = RequestGetUserObjects.create(mUser.getPhone());
-			mApi.getUserObjects(request, mGetObjectsCallback);
-		}
-	}
-	
-//	@Override
-//	protected void onResume() {
-//		super.onResume();
-//		if (checkGoogleServiceAvailable()) {
-//			mLocationClient.connect();
-//		}
-//	}
 
-	@Override
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getSupportMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        menu.findItem(R.id.menuGps).setIcon(mLocationClient != null && (mLocationClient.isConnected() || mLocationClient.isConnecting()) && isGPSEnabled() ?
+            R.drawable.new_gps_on : R.drawable.new_gps_off);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menuGps:
+                if (!isGPSEnabled()) {
+                    startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                    break;
+                }
+                toggleLocationClientConnectionStatus();
+                invalidateOptionsMenu();
+                break;
+            case android.R.id.home:
+                if(mUser != null){
+                    showCabinetFragment();
+                } else {
+                    // TODO suggest to register
+                }
+                break;
+        }
+        return true;
+    }
+
+    private boolean isGPSEnabled() {
+        final LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        return manager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+    }
+
+    private void toggleLocationClientConnectionStatus() {
+        if (mLocationClient == null) {
+            setupLocationClient();
+        }
+
+        if (mLocationClient.isConnected() || mLocationClient.isConnecting()) {
+            mLocationClient.disconnect();
+        } else {
+            mLocationClient.connect();
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        setupLocationClient();
+        invalidateOptionsMenu();
+    }
+
+    @Override
 	protected void onStop() {
 		super.onStop();
+        if (mLocation != null) {
+            PrefUtils.saveDefaultLocation(this, mLocation);
+        } else {
+            PrefUtils.saveDefaultLocation(this, defaultLocation);
+        }
 		if (mLocationClient != null && mLocationClient.isConnected()) {
 			System.out.println("Removing location updates");
 			mLocationClient.removeLocationUpdates(this);
@@ -253,7 +331,7 @@ public class MainActivity extends SherlockFragmentActivity implements Connection
 		FragmentManager manager = getSupportFragmentManager();
 		FragmentTransaction transaction = manager.beginTransaction();
 
-		MapFragment map = MapFragment.create(latFrom, lonFrom, mCurrentAutowashFilter);
+		MapFragment map = MapFragment.create(mCurrentAutowashFilter);
 		
 		transaction.replace(R.id.container, map, "map");
 //		transaction.addToBackStack("map");
@@ -394,6 +472,7 @@ public class MainActivity extends SherlockFragmentActivity implements Connection
 
 	@Override
 	public void onConnectionFailed(ConnectionResult arg0) {
+        invalidateOptionsMenu();
 		Logger.logDebug(tag, "onConnectionFailed - " + arg0.getErrorCode());
 	}
 
@@ -409,12 +488,14 @@ public class MainActivity extends SherlockFragmentActivity implements Connection
 		Logger.logDebug(tag, "requesting location updates");
 		mLocationRequest = LocationRequest.create().setInterval(5000).setFastestInterval(1000).setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY).setNumUpdates(1);
 		mLocationClient.requestLocationUpdates(mLocationRequest, this);
+        invalidateOptionsMenu();
 	}
 
 	@Override
 	public void onDisconnected() {
 		Logger.logDebug(tag, "on disconnected");
 		mLocationClient.removeLocationUpdates(this);
+        invalidateOptionsMenu();
 	}
 
 	@Override
@@ -423,28 +504,14 @@ public class MainActivity extends SherlockFragmentActivity implements Connection
 		mLocation = location;
 		
 		if(mNeedInitializeView){
-			hideProgressDialog();
+            //TODO first location update happened
 			mNeedInitializeView = false;
-			initializeState(location);
 		}
 
 //		if (mFragmentLocationListener != null) {
 //			mFragmentLocationListener.onLocationChanged(location);
 //			mFragmentLocationListener = null;
 //		}
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		if(item.getItemId() == android.R.id.home){
-			if(mUser != null){
-				showCabinetFragment();
-			} else {
-				// TODO suggest to register
-			}
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
 	}
 
 	public void enableProfileButton() {
