@@ -19,8 +19,9 @@ import java.util.Map;
  */
 public class MapPinController {
 
-    private Map<Marker, ResponseGetOrganizations.Point> markerMap = new HashMap<Marker, ResponseGetOrganizations.Point>();
+    private final Map<Marker, ResponseGetOrganizations.Point> markerMap = new HashMap<Marker, ResponseGetOrganizations.Point>();
     private GoogleMap map;
+    private final Object lock = new Object();
 
     public MapPinController(Context context, GoogleMap map) {
         this.map = map;
@@ -29,34 +30,34 @@ public class MapPinController {
     }
 
     public void swap(List<ResponseGetOrganizations.Organisation> organizations) {
-        for (Marker marker : markerMap.keySet()) {
-            for (ResponseGetOrganizations.Organisation organization : organizations) {
-                if (!organization.getOrganisations().contains(markerMap.get(marker))) {
-                    marker.remove();
-                    markerMap.remove(marker);
-                }
+        synchronized (lock) {
+            for (Marker marker : markerMap.keySet()) {
+                marker.remove();
             }
-        }
-        for (ResponseGetOrganizations.Organisation organization : organizations) {
-            for (ResponseGetOrganizations.Point point : organization.getOrganisations()) {
-                if (!markerMap.containsValue(point)) {
-                    int markerIconResId = organization.isPremium() ? R.drawable.new_pin_green : R.drawable.new_pin_gray;
-                    Marker marker = map.addMarker(new MarkerOptions()
-                            .position(new LatLng(point.getLatitude(), point.getLongitude()))
-                            .icon(BitmapDescriptorFactory.fromResource(markerIconResId))
-                            .anchor(1f, 0.33f)
-                            .title(point.getName())
-                            .draggable(false));
-                    markerMap.put(marker, point);
+            markerMap.clear();
+            for (ResponseGetOrganizations.Organisation organization : organizations) {
+                for (ResponseGetOrganizations.Point point : organization.getOrganisations()) {
+                    if (!markerMap.containsValue(point)) {
+                        int markerIconResId = organization.isPremium() ? R.drawable.new_pin_green : R.drawable.new_pin_gray;
+                        Marker marker = map.addMarker(new MarkerOptions()
+                                .position(new LatLng(point.getLatitude(), point.getLongitude()))
+                                .icon(BitmapDescriptorFactory.fromResource(markerIconResId))
+                                .anchor(1f, 0.33f)
+                                .title(point.getName())
+                                .draggable(false));
+                        markerMap.put(marker, point);
+                    }
                 }
             }
         }
     }
 
     public void clear() {
-        for (Marker marker : markerMap.keySet()) {
-            marker.remove();
-            markerMap.remove(marker);
+        synchronized (lock) {
+            for (Marker marker : markerMap.keySet()) {
+                marker.remove();
+                markerMap.remove(marker);
+            }
         }
     }
 

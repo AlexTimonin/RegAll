@@ -37,6 +37,7 @@ import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.regall.R;
 import com.regall.controllers.AutowashController;
+import com.regall.fragments.ListFragment;
 import com.regall.fragments.MapFragment;
 import com.regall.old.db.DAOUserObject;
 import com.regall.old.fragments.AddCarFragment;
@@ -97,6 +98,7 @@ public class MainActivity extends SherlockFragmentActivity implements Connection
 	private boolean mNeedInitializeView;
 	private AutowashController autowashController;
     private boolean isGPSEnabled = true;
+    private boolean isMapShown;
 
 	private Callback<ResponseGetUserObjects> mGetObjectsCallback = new Callback<ResponseGetUserObjects>() {
 
@@ -170,6 +172,10 @@ public class MainActivity extends SherlockFragmentActivity implements Connection
     public AutowashController getAutowashController() {
         return autowashController;
     }
+
+    public AutowashFilter getCurrentAutowashFilter() {
+        return mCurrentAutowashFilter;
+    }
 	
 	private void setupLocationClient(){
 		if(checkGoogleServiceAvailable() && isGPSEnabled){
@@ -195,8 +201,13 @@ public class MainActivity extends SherlockFragmentActivity implements Connection
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        menu.findItem(R.id.menuGps).setIcon(mLocationClient != null && (mLocationClient.isConnected() || mLocationClient.isConnecting()) && isGPSEnabled() ?
-            R.drawable.new_gps_on : R.drawable.new_gps_off);
+        if (menu.findItem(R.id.menuGps) != null) {
+            menu.findItem(R.id.menuGps).setIcon(mLocationClient != null && (mLocationClient.isConnected() || mLocationClient.isConnecting()) && isGPSEnabled() ?
+                    R.drawable.new_gps_on : R.drawable.new_gps_off);
+        }
+        if (menu.findItem(R.id.menuToggleMode) != null) {
+            menu.findItem(R.id.menuToggleMode).setIcon(isMapShown ? R.drawable.new_list : R.drawable.new_map);
+        }
         return true;
     }
 
@@ -210,6 +221,13 @@ public class MainActivity extends SherlockFragmentActivity implements Connection
                 }
                 toggleLocationClientConnectionStatus();
                 invalidateOptionsMenu();
+                break;
+            case R.id.menuToggleMode:
+                if (isMapShown) {
+                    showListFragment();
+                } else {
+                    showMapFragment(0, 0, 0, 0);
+                }
                 break;
             case android.R.id.home:
                 if(mUser != null){
@@ -331,13 +349,28 @@ public class MainActivity extends SherlockFragmentActivity implements Connection
 		FragmentManager manager = getSupportFragmentManager();
 		FragmentTransaction transaction = manager.beginTransaction();
 
-		MapFragment map = MapFragment.create(mCurrentAutowashFilter);
+		MapFragment map = MapFragment.create();
 		
 		transaction.replace(R.id.container, map, "map");
 //		transaction.addToBackStack("map");
 
 		transaction.commit();
+        isMapShown = true;
+        invalidateOptionsMenu();
 	}
+
+    public void showListFragment() {
+        hideProgressDialog();
+
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+
+        transaction.replace(R.id.container, new ListFragment(), "list");
+
+        transaction.commit();
+        isMapShown = false;
+        invalidateOptionsMenu();
+    }
 
 	public API getApi() {
 		return mApi;

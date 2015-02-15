@@ -1,14 +1,11 @@
 package com.regall.old.network.request;
 
+import android.text.TextUtils;
+import android.util.Log;
+import com.regall.old.model.AutowashFilter;
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Root;
-
-import android.util.Log;
-
-import com.regall.old.model.AutowashFilter;
-import com.regall.old.model.AutowashFilter.LocationFilter;
-import com.regall.old.network.geocode.json.Location;
 
 @Root(name="request_type")
 public class RequestGetOrganizations {
@@ -44,9 +41,12 @@ public class RequestGetOrganizations {
 		
 		@Attribute(name="page")
 		private int mPage;
-		
+
 		@Attribute(name="isarc")
 		private int mGzip = 0;
+
+        @Attribute(name="finde_text")
+        private String searchKey;
 
 	}
 	
@@ -62,16 +62,15 @@ public class RequestGetOrganizations {
 		
 		params.mServicesFilter = filter.getServicesString();
 		params.mAdditionalServicesFilter = filter.getAservicesString();
-		
-		if(filter.getLocationFilterType().equals(LocationFilter.ADDRESS)){
-			Location addressLocation = filter.getGeopointDescription().getGeometry().getLocation();
-			params.mLatitude = addressLocation.getLatitude();
-			params.mLongitude = addressLocation.getLongitude();
-		} else {
-			params.mLatitude = filter.getLatitude();
-			params.mLongitude = filter.getLongitude();
-		}
-		
+
+        if (TextUtils.isEmpty(filter.getSearchKey())) {
+            params.searchKey = "";
+        } else {
+            params.searchKey = filter.getSearchKey().trim();
+        }
+        params.mLatitude = filter.getLatitude();
+        params.mLongitude = filter.getLongitude();
+
 		Log.e("zzz", "lat - " + params.mLatitude + ", lng - " + params.mLongitude);
 		return new RequestGetOrganizations(params);
 	}

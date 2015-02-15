@@ -48,11 +48,12 @@ public class AutowashController {
                     //TODO refresh page?
                 } else {
                     organisations.clear();
-                    organisations.addAll(response.getOrganisations());
+                    if (response.getOrganisations() != null) {
+                        organisations.addAll(response.getOrganisations());
+                    }
                 }
                 lastLoadedPage = response.getPage().getPageNumber();
                 fragmentCallback.success(object);
-                organisations.clear();
             } else {
                 Toast.makeText(mainActivity, mainActivity.getString(R.string.error_loading_data), Toast.LENGTH_LONG).show();
             }

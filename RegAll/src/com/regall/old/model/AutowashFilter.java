@@ -1,12 +1,11 @@
 package com.regall.old.model;
 
-import java.io.Serializable;
-import java.util.HashSet;
-
 import android.text.TextUtils;
-
 import com.regall.old.network.geocode.json.Result;
 import com.regall.old.network.response.ResponseGetServices.Service;
+
+import java.io.Serializable;
+import java.util.HashSet;
 
 public class AutowashFilter implements Serializable {
 
@@ -25,6 +24,7 @@ public class AutowashFilter implements Serializable {
 	private HashSet<AdditionalService> mAdditionalServices;
 	private double mLatitude;
 	private double mLongitude;
+    private String searchKey;
 	
 	public AutowashFilter(LocationFilter locationFilterType, HashSet<Service> servicesSet, HashSet<AdditionalService> additionalServices) {
 		this.mLocationFilterType = locationFilterType;
@@ -39,7 +39,15 @@ public class AutowashFilter implements Serializable {
 		this.mAdditionalServices = additionalServices;
 	}
 
-	public LocationFilter getLocationFilterType() {
+    public String getSearchKey() {
+        return searchKey;
+    }
+
+    public void setSearchKey(String searchKey) {
+        this.searchKey = searchKey;
+    }
+
+    public LocationFilter getLocationFilterType() {
 		return mLocationFilterType;
 	}
 
