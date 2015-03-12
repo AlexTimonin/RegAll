@@ -41,7 +41,7 @@ public class AutowashController {
         @Override
         public void success(Object object) {
             ResponseGetOrganizations response = (ResponseGetOrganizations) object;
-            if (response.isSuccess() && fragmentCallback != null) {
+            if (response.isSuccess() && fragmentCallback != null && response.getOrganisations() != null) {
                 if (response.getPage().getPageNumber() > lastLoadedPage) {
                     organisations.addAll(response.getOrganisations());
                 } else if (lastLoadedPage != 0 && response.getPage().getPageNumber() == lastLoadedPage) {

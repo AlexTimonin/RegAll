@@ -71,6 +71,7 @@ public class ListAdapter extends BaseAdapter {
     }
 
     private static class ViewHolder {
+
         ImageView image;
         TextView name;
         TextView address;
@@ -82,6 +83,7 @@ public class ListAdapter extends BaseAdapter {
             address = (TextView) root.findViewById(R.id.listItemAddressTextView);
             workTime = (TextView) root.findViewById(R.id.listItemWorkTimeTextView);
         }
+
     }
 
 }
