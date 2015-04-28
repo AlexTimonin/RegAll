@@ -46,7 +46,7 @@ public class MapFragment extends SupportMapFragment implements GoogleMap.OnCamer
 		map.getUiSettings().setZoomControlsEnabled(true);
         map.setOnCameraChangeListener(this);
 
-        mapPinController = new MapPinController(getActivity(), map);
+        mapPinController = new MapPinController(getMainActivity(), map);
 		map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(getCurrentLocation().getLatitude(), getCurrentLocation().getLongitude()), 14.0f));
 	}
 

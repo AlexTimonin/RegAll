@@ -35,6 +35,7 @@ import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.location.LocationClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
+import com.regall.DetailsActivity;
 import com.regall.R;
 import com.regall.controllers.AutowashController;
 import com.regall.fragments.ListFragment;
@@ -370,6 +371,12 @@ public class MainActivity extends SherlockFragmentActivity implements Connection
         transaction.commit();
         isMapShown = false;
         invalidateOptionsMenu();
+    }
+
+    public void startDetailsActivity(Point point) {
+        Intent intent = new Intent(this, DetailsActivity.class);
+        intent.putExtra(DetailsActivity.EXTRA_POINT, point);
+        startActivity(intent);
     }
 
 	public API getApi() {

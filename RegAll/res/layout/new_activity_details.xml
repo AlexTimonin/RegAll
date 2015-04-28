@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <ImageView
+                android:id="@+id/detailsImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="50dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"/>
+
+        <TextView
+                android:id="@+id/detailsNavigateButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:visibility="gone"/>
+
+    </RelativeLayout>
+
+    <ImageView
+            android:id="@+id/detailsApplyButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="10dp">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="Оценка пользователей:"/>
+
+        <RatingBar
+                android:layout_width="0px"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <ExpandableListView
+            android:id="@+id/detailsExpandableListView"
+            android:layout_width="wrap_content"
+            android:layout_height="0px"
+            android:layout_weight="1"/>
+
+</LinearLayout>

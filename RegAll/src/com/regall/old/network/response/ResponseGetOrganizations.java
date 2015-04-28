@@ -197,7 +197,10 @@ public class ResponseGetOrganizations extends BasicResponse {
 		
 		@Attribute(name = "longitude")
 		private double mLongitude;
-		
+
+        @Attribute(name = "stars")
+        private int stars;
+
 		@ElementList(name="point_service", inline = true, required = false)
 		private ArrayList<ServiceDescription> mServices;
 		
@@ -252,7 +255,11 @@ public class ResponseGetOrganizations extends BasicResponse {
 			return mPictureUrl;
 		}
 
-		public ArrayList<ServiceDescription> getServices() {
+        public int getStars() {
+            return stars;
+        }
+
+        public ArrayList<ServiceDescription> getServices() {
 			return mServices;
 		}
 

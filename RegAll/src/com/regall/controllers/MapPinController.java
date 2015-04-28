@@ -1,6 +1,5 @@
 package com.regall.controllers;
 
-import android.content.Context;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
@@ -8,6 +7,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.regall.R;
 import com.regall.adapters.MapMarkerInfoWindowAdapter;
+import com.regall.old.MainActivity;
 import com.regall.old.network.response.ResponseGetOrganizations;
 
 import java.util.HashMap;
@@ -22,8 +22,10 @@ public class MapPinController {
     private final Map<Marker, ResponseGetOrganizations.Point> markerMap = new HashMap<Marker, ResponseGetOrganizations.Point>();
     private GoogleMap map;
     private final Object lock = new Object();
+    private MainActivity context;
 
-    public MapPinController(Context context, GoogleMap map) {
+    public MapPinController(MainActivity context, GoogleMap map) {
+        this.context = context;
         this.map = map;
         map.setInfoWindowAdapter(new MapMarkerInfoWindowAdapter(context, markerMap));
         map.setOnInfoWindowClickListener(infoWindowClickListener);
@@ -64,7 +66,7 @@ public class MapPinController {
     private GoogleMap.OnInfoWindowClickListener infoWindowClickListener = new GoogleMap.OnInfoWindowClickListener() {
         @Override
         public void onInfoWindowClick(Marker marker) {
-            //TODO
+            context.startDetailsActivity(markerMap.get(marker));
         }
     };
 

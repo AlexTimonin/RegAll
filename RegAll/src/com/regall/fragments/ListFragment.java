@@ -7,7 +7,7 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import com.regall.R;
@@ -21,9 +21,9 @@ import com.regall.old.network.response.ResponseGetOrganizations;
 /**
  * Created by Alex on 14.02.2015.
  */
-public class ListFragment extends BaseFragment implements TextWatcher, View.OnClickListener {
+public class ListFragment extends BaseFragment implements TextWatcher, View.OnClickListener, AdapterView.OnItemClickListener {
 
-    private BaseAdapter listAdapter;
+    private ListAdapter listAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -40,6 +40,7 @@ public class ListFragment extends BaseFragment implements TextWatcher, View.OnCl
         searchEditText.addTextChangedListener(this);
         view.findViewById(R.id.searchButton).setOnClickListener(this);
         ((ListView) view.findViewById(R.id.listView)).setAdapter(listAdapter = new ListAdapter(getActivity(), getAutowashController().getOrganisations()));
+        ((ListView) view.findViewById(R.id.listView)).setOnItemClickListener(this);
     }
 
     @Override
@@ -94,4 +95,10 @@ public class ListFragment extends BaseFragment implements TextWatcher, View.OnCl
                 break;
         }
     }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        getMainActivity().startDetailsActivity(listAdapter.getItem(position));
+    }
+
 }
