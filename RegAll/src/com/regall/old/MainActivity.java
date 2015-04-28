@@ -15,9 +15,11 @@ import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.provider.CalendarContract.Events;
 import android.provider.Settings;
+import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -100,6 +102,9 @@ public class MainActivity extends SherlockFragmentActivity implements Connection
 	private AutowashController autowashController;
     private boolean isGPSEnabled = true;
     private boolean isMapShown;
+
+	private DrawerLayout mDrawerLayout;
+	private ActionBarDrawerToggle mDrawerToggle;
 
 	private Callback<ResponseGetUserObjects> mGetObjectsCallback = new Callback<ResponseGetUserObjects>() {
 
@@ -283,19 +288,40 @@ public class MainActivity extends SherlockFragmentActivity implements Connection
 	private void setupActionBar() {
 		ActionBar ab = getSupportActionBar();
 		View customActionBar = getLayoutInflater().inflate(R.layout.action_bar_background, null);
-		ActionBar.LayoutParams lp = new ActionBar.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.MATCH_PARENT, Gravity.CENTER);
 		ab.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 		ab.setDisplayShowCustomEnabled(true);
-		ab.setDisplayShowTitleEnabled(true);
-		ab.setCustomView(customActionBar, lp);
+		ab.setDisplayShowTitleEnabled(false);
+		ab.setCustomView(customActionBar);
 
-		ab.setLogo(R.drawable.logo);
-		ab.setTitle(R.string.app_name);
+		ab.setLogo(R.drawable.new_ic_drawer);
 
 		ab.setDisplayUseLogoEnabled(true);
 		ab.setDisplayShowHomeEnabled(true);
 		ab.setDisplayHomeAsUpEnabled(true);
 		ab.setHomeButtonEnabled(true);
+
+		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+		mDrawerToggle = new ActionBarDrawerToggle(
+				this,                  /* host Activity */
+				mDrawerLayout,         /* DrawerLayout object */
+				R.drawable.new_ic_drawer,  /* nav drawer icon to replace 'Up' caret */
+				R.string.app_name,  /* "open drawer" description */
+				R.string.app_name  /* "close drawer" description */
+		) {
+
+			/** Called when a drawer has settled in a completely closed state. */
+			public void onDrawerClosed(View view) {
+				super.onDrawerClosed(view);
+			}
+
+			/** Called when a drawer has settled in a completely open state. */
+			public void onDrawerOpened(View drawerView) {
+				super.onDrawerOpened(drawerView);
+			}
+		};
+
+		// Set the drawer toggle as the DrawerListener
+		mDrawerLayout.setDrawerListener(mDrawerToggle);
 	}
 
 	public void loadFragment(BaseFragment fragment, boolean addToBackStack) {
@@ -647,4 +673,20 @@ public class MainActivity extends SherlockFragmentActivity implements Connection
 		}
 		
 	}
+
+	@Override
+	public boolean onMenuItemSelected(int featureId, MenuItem item) {
+		int itemId = item.getItemId();
+		switch (itemId) {
+			case android.R.id.home:
+				if (mDrawerLayout.isDrawerOpen(Gravity.LEFT)) {
+					mDrawerLayout.closeDrawers();
+				} else {
+					mDrawerLayout.openDrawer(Gravity.LEFT);
+				}
+				break;
+		}
+		return true;
+	}
+
 }
